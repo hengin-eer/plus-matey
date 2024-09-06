@@ -4,5 +4,11 @@
 		"next/typescript",
 		"eslint:recommended",
 		"prettier"
-	]
+	],
+	"rules": {
+		"padding-line-between-statements": [
+			"error",
+			{ "blankLine": "always", "prev": "*", "next": "export" }
+		]
+	}
 }
