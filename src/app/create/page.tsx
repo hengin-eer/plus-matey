@@ -1,9 +1,9 @@
-function Create(){
-    return (
-        <div>
-            <p>Create</p>
-        </div>
-    )
+function Create() {
+	return (
+		<div>
+			<p>Create</p>
+		</div>
+	);
 }
-export default Create;
 
+export default Create;

@@ -1,9 +1,9 @@
-function New(){
-    return (
-        <div>
-            <p>New</p>
-        </div>
-    )
+function New() {
+	return (
+		<div>
+			<p>New</p>
+		</div>
+	);
 }
-export default New;
 
+export default New;

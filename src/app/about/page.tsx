@@ -1,8 +1,9 @@
-function About(){
-    return (
-        <div>
-            <p>about</p>
-        </div>
-    )
+function About() {
+	return (
+		<div>
+			<p>about</p>
+		</div>
+	);
 }
+
 export default About;

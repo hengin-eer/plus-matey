@@ -1,9 +1,9 @@
-function Bookmarked(){
-    return (
-        <div>
-            <p>Bookmarked</p>
-        </div>
-    )
+function Bookmarked() {
+	return (
+		<div>
+			<p>Bookmarked</p>
+		</div>
+	);
 }
-export default Bookmarked;
 
+export default Bookmarked;
