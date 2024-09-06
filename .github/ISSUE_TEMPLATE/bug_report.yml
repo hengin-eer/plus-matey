@@ -31,11 +31,19 @@ body:
     validations:
       required: false
   - type: textarea
+    id: how-to-resolve
+    attributes:
+      label: 考えられる解決方法
+      description: バグを解決するために考えられる方法を思いついていれば、ここに書いてください。憶測でも構いません。
+      placeholder: "パッケージのバージョンを下げる"
+    validations:
+      required: false
+  - type: textarea
     id: environment
     attributes:
       label: 環境情報（バグの種類より記載するか否か判断）
       description: バグが発生した環境に関する情報を記述してください
-      value: |
+      placeholder: |
         - OS: Windows 10
         - ブラウザ: MicroSoft Edge
         - バージョン: 110.0
