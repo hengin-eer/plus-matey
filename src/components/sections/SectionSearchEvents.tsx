@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import PageHeading from '../parts/PageHeading';
+import { Icon } from '@iconify/react';
 
 const SectionSearchEvents: FC = () => {
 	const searchOptions = [
@@ -38,8 +39,11 @@ const SectionSearchEvents: FC = () => {
 						className="px-5 py-3 rounded-lg bg-light-gray placeholder:text-base placeholder:
 					text-gray focus-visible:text-foreground focus-visible:outline-gray transition-all duration-300"
 					/>
-					<button className="h-12 rounded-lg bg-primary-green">
-						{/* TODO: 虫メガネアイコンを追加 */}
+					<button className="flex items-center justify-center gap-2 h-12 rounded-lg bg-primary-green">
+						<Icon
+							icon="material-symbols-light:search-rounded"
+							className="size-8"
+						/>
 						<p className="text-base">この条件で検索する</p>
 					</button>
 				</div>
@@ -47,10 +51,20 @@ const SectionSearchEvents: FC = () => {
 				<div className="flex flex-col gap-8">
 					{/* TODO: ラジオボタンのスタイル追加 */}
 					{searchOptions.map((item) => (
-						<span key={item.id} className="flex items-center gap-6">
-							<input type="radio" value={item.id} />
+						<label key={item.id} className="relative flex items-center gap-6">
+							<input
+								type="checkbox"
+								name="search-options"
+								value={item.id}
+								className="hidden peer/checkbox"
+							/>
+							<span className="relative size-5 border border-black rounded-[4px] peer-checked/checkbox:bg-primary-yellow transition-all" />
+							<Icon
+								icon="material-symbols-light:check-small-rounded"
+								className="absolute -left-[6px] opacity-0 size-8 peer-checked/checkbox:opacity-100 transition-all"
+							/>
 							<p>{item.jp}</p>
-						</span>
+						</label>
 					))}
 				</div>
 
