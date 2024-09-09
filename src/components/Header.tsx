@@ -110,7 +110,7 @@ const Header: FC = () => {
 								<MenuItem key={item.icon}>
 									<Link
 										href={item.url}
-										className="flex gap-2 border-b border-gray hover:bg-light-gray px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 items-center"
+										className="flex gap-2 border-b border-gray transition-colors duration-300 hover:bg-light-gray px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 items-center"
 									>
 										<Icon
 											icon={item.icon}
@@ -126,7 +126,7 @@ const Header: FC = () => {
 								<MenuItem>
 									<button
 										type="submit"
-										className="w-full px-4 py-2 text-left text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 hover:bg-light-gray flex gap-2 items-center"
+										className="w-full px-4 py-2 text-left text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 hover:bg-light-gray flex gap-2 items-center transition-colors duration-300"
 									>
 										<Icon
 											icon="material-symbols-light:logout-rounded"
