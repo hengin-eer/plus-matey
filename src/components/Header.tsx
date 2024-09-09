@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { FC } from 'react';
 
-const Header = () => {
+const Header: FC = () => {
 	const headerLinkList = [
 		{
 			url: '/about',
