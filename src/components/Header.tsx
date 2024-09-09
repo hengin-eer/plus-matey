@@ -2,8 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { FC } from 'react';
+import { Icon } from '@iconify/react';
 
 const Header: FC = () => {
+	// ヘッダー内のリンク先
 	const headerLinkList = [
 		{
 			url: '/about',
@@ -27,8 +29,28 @@ const Header: FC = () => {
 		},
 	];
 
+	// アイコンのメニューのボタン
+	const headerMenuItems = [
+		{
+			icon: 'material-symbols-light:account-circle',
+			url: '/profile',
+			name: 'プロフィール',
+		},
+		{
+			icon: 'material-symbols-light:data-check-rounded',
+			url: '/manage',
+			name: 'イベント管理',
+		},
+		{
+			icon: 'material-symbols-light:settings-outline-rounded',
+			url: '/settings',
+			name: '設定',
+		},
+	];
+
 	return (
 		<header className="px-[40px] py-[24px] w-full flex justify-between items-center border-b border-black">
+			{/* ロゴ */}
 			<Link href="/">
 				<Image
 					src="/logo.svg"
@@ -37,9 +59,11 @@ const Header: FC = () => {
 					alt="logo"
 					className="h-[50px] w-auto"
 				/>
+
+				{/* ヘッダーのリンク */}
 			</Link>
-			<nav className="flex space-x-[22.4px]">
-				<ul className="text-sm space-x-[22.4px] text-primary-red">
+			<nav className="flex gap-[24px] items-center">
+				<ul className="text-base flex gap-[40px] text-primary-red">
 					{headerLinkList.map((item) => (
 						<Link
 							href={item.url}
@@ -53,22 +77,26 @@ const Header: FC = () => {
 
 				{/* イベント作成ボタン */}
 				<Link href="/create">
-					<button className="text-sm space-x-[22.4px]">
-						{/* プラスアイコン */}
+					<button className="text-sm gap-1 flex items-center bg-white rounded-md border border-black pl-3 pr-5 py-[4px] hover:bg-primary-red">
+						<Icon
+							icon="material-symbols-light:add-circle-outline-rounded"
+							className="size-8"
+						/>
 						<p className="text-xs">イベントを作成</p>
 					</button>
 				</Link>
 
-				{/* アカウントのアイコンの表示 */}
-				<Menu as="div" className="relative inline-block text-left items-center">
+				{/* アカウントのアイコン、クリックするとメニューを表示 */}
+				<Menu as="div" className="relative text-left items-center">
 					<div>
-						<MenuButton className="inline-flex w-full justify-center px-3 py-2 hover:bg-primary-red">
+						{/* アカウントのアイコン */}
+						<MenuButton className="flex w-max items-center justify-center hover:bg-light-gray">
 							<Image
 								src="/kirito.png"
 								width={500}
 								height={500}
 								alt="icon"
-								className="h-[30px] w-auto"
+								className="h-[40px] w-[40px] aspect-square"
 							/>
 						</MenuButton>
 					</div>
@@ -76,37 +104,31 @@ const Header: FC = () => {
 						transition
 						className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md shadow-lg bg-white transiton focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
 					>
-						<div className="py-1">
-							<MenuItem>
-								<Link
-									href="/profile"
-									className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 border-b border-black hover:bg-primary-red"
-								>
-									プロフィール
-								</Link>
-							</MenuItem>
-							<MenuItem>
-								<Link
-									href="/manage"
-									className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 border-b border-black hover:bg-primary-red"
-								>
-									イベント管理
-								</Link>
-							</MenuItem>
-							<MenuItem>
-								<Link
-									href="/settings"
-									className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 border-b border-black hover:bg-primary-red"
-								>
-									設定
-								</Link>
-							</MenuItem>
+						{/* メニューボタン一覧 */}
+						<div className="px-6 py-4">
+							{headerMenuItems.map((item) => (
+								<MenuItem key={item.icon}>
+									<div className="flex gap-2 border-b border-gray hover:bg-light-gray px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 items-center">
+										<Icon
+											icon={item.icon}
+											className="size-8 text-primary-red "
+										/>
+										<Link href={item.url}>{item.name}</Link>
+									</div>
+								</MenuItem>
+							))}
+
+							{/* ログアウトボタン */}
 							<form action="logout" method="POST">
 								<MenuItem>
 									<button
 										type="submit"
-										className="block w-full px-4 py-2 text-left text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 hover:bg-primary-red"
+										className="w-full px-4 py-2 text-left text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 hover:bg-light-gray flex gap-2 items-center"
 									>
+										<Icon
+											icon="material-symbols-light:logout-rounded"
+											className="size-8 text-primary-red"
+										/>
 										サインアウト
 									</button>
 								</MenuItem>
