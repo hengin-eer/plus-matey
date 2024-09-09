@@ -77,7 +77,7 @@ const Header: FC = () => {
 
 				{/* イベント作成ボタン */}
 				<Link href="/create">
-					<button className="text-sm gap-1 flex items-center bg-white rounded-md border border-black pl-3 pr-5 py-[4px] hover:bg-primary-red">
+					<button className="text-sm gap-1 flex items-center bg-white rounded-md border border-black pl-3 pr-5 py-[4px] transition-colors duration-300  hover:bg-primary-red hover:text-white">
 						<Icon
 							icon="material-symbols-light:add-circle-outline-rounded"
 							className="size-8"
@@ -108,13 +108,16 @@ const Header: FC = () => {
 						<div className="px-6 py-4">
 							{headerMenuItems.map((item) => (
 								<MenuItem key={item.icon}>
-									<div className="flex gap-2 border-b border-gray hover:bg-light-gray px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 items-center">
+									<Link
+										href={item.url}
+										className="flex gap-2 border-b border-gray hover:bg-light-gray px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 items-center"
+									>
 										<Icon
 											icon={item.icon}
 											className="size-8 text-primary-red "
 										/>
-										<Link href={item.url}>{item.name}</Link>
-									</div>
+										{item.name}
+									</Link>
 								</MenuItem>
 							))}
 
