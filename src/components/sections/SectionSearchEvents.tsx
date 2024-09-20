@@ -44,8 +44,8 @@ const SectionSearchEvents: FC = () => {
 					<input
 						type="text"
 						placeholder="検索ワードを入力してください"
-						className="px-5 py-3 rounded-lg bg-light-gray placeholder:text-base placeholder:
-					text-gray focus-visible:text-foreground focus-visible:outline-gray transition-all duration-300"
+						className="px-5 py-3 rounded-lg bg-light-gray text-foreground outline-none placeholder:text-base placeholder:
+					text-gray focus-visible:outline-gray transition-all duration-300"
 					/>
 					<button
 						type="submit"
