@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-	--background: #f0f4fc;
+	--background: #F0F4FC;
 	--foreground: #171717;
 }
 
@@ -14,7 +14,7 @@ body {
 }
 
 @layer utilities {
-	.text-balance {
-		text-wrap: balance;
+	.bg-gradient-orange {
+		@apply bg-gradient-to-r from-primary-yellow to-primary-pink;
 	}
 }
