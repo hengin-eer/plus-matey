@@ -25,7 +25,7 @@ const SectionLeftForms: FC = () => {
 				<label>
 					<textarea
 						// TODO: Focusしている時にテキストエリアのrowsを拡張したい
-						onFocus={() => {}}
+						// onFocus={() => {}}
 						rows={6}
 						name="summary"
 						placeholder="例: Co+work99班です！私たちの活動でWebアプリを作成することになりました。そこでWebアプリを作成してくださる方を募集します！"
@@ -36,7 +36,7 @@ const SectionLeftForms: FC = () => {
 			</EventInputForm>
 
 			<EventInputForm
-				title="🖼️イベント画像"
+				title="イベント画像"
 				summary="イベント紹介画面にて表示されるサムネイル画像を設定します"
 			>
 				<PreviewThumbnail />
