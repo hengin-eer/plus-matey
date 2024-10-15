@@ -19,10 +19,6 @@ const SectionRightForms: FC = () => {
 			id: 'a',
 			text: '建築学科',
 		},
-		{
-			id: 'all',
-			text: '全学科',
-		},
 	];
 
 	const sexList = [
@@ -33,10 +29,6 @@ const SectionRightForms: FC = () => {
 		{
 			id: 'female',
 			text: '女性',
-		},
-		{
-			id: 'weather',
-			text: '性別問わず',
 		},
 	];
 
@@ -72,7 +64,7 @@ const SectionRightForms: FC = () => {
 	];
 
 	return (
-		<section className="min-w-[400px] flex flex-col gap-6">
+		<section className="w-[400px] flex flex-col gap-6">
 			<EventInputForm
 				title="開催日時"
 				summary="イベント開催日時を入力してください。"
@@ -87,7 +79,13 @@ const SectionRightForms: FC = () => {
 				</label>
 			</EventInputForm>
 
-			<EventInputForm title="学科">
+			<EventInputForm
+				title="学科の制限"
+				summary="
+					学科を絞って募集したい場合は選択してください。<br/>
+					デフォルトは全学科。
+				"
+			>
 				<div className="flex flex-col gap-4">
 					{departmentList.map((item) => (
 						<label
@@ -107,7 +105,13 @@ const SectionRightForms: FC = () => {
 				</div>
 			</EventInputForm>
 
-			<EventInputForm title="性別">
+			<EventInputForm
+				title="性別の制限"
+				summary="
+					性別を絞って募集したい場合は選択してください。<br/>
+					デフォルトは性別問わず。
+				"
+			>
 				<div className="flex flex-col gap-4">
 					{sexList.map((item) => (
 						<label
@@ -121,7 +125,13 @@ const SectionRightForms: FC = () => {
 				</div>
 			</EventInputForm>
 
-			<EventInputForm title="学年">
+			<EventInputForm
+				title="学年の制限"
+				summary="
+					学年を絞って募集したい場合は選択してください。<br/>
+					デフォルトは全学年。
+				"
+			>
 				<div className="flex flex-col gap-4">
 					{gradeList.map((item) => (
 						<label
