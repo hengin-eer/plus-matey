@@ -1,3 +1,4 @@
+import SectionFooter from '@/components/sections/create/SectionFooter';
 import SectionHeading from '@/components/sections/create/SectionHeading';
 import SectionLeftForms from '@/components/sections/create/SectionLeftForms';
 import SectionRightForms from '@/components/sections/create/SectionRightForms';
@@ -18,6 +19,8 @@ function Create() {
 					<SectionLeftForms />
 					<SectionRightForms />
 				</div>
+
+				<SectionFooter />
 			</form>
 		</main>
 	);
