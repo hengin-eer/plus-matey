@@ -15,7 +15,7 @@ const EventInputForm: FC<Props> = ({
 }) => {
 	return (
 		<div className="flex flex-col w-full px-5 py-6 bg-white border border-gray rounded-md">
-			<h3 className={`flex items-center gap-2 text-xl ${isRequired && ''}`}>
+			<h3 className="flex items-center gap-2 text-xl font-bold">
 				<span>{title}</span>
 
 				{isRequired && (
