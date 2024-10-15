@@ -26,7 +26,7 @@ const EventInputForm: FC<Props> = ({
 			</h3>
 			{summary && (
 				<p
-					className="text-sm mt-3"
+					className="text-sm mt-3 leading-[1.8]"
 					dangerouslySetInnerHTML={{ __html: summary }}
 				/>
 			)}
