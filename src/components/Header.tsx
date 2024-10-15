@@ -90,7 +90,7 @@ const Header: FC = () => {
 				<Menu as="div" className="relative text-left items-center">
 					<div>
 						{/* アカウントのアイコン */}
-						<MenuButton className="flex w-max items-center justify-center hover:bg-light-gray">
+						<MenuButton className="flex w-max items-center justify-center hover:bg-light-gray transition duration-300 hover:scale-95 delay-150">
 							<Image
 								src="/kirito.png"
 								width={500}
