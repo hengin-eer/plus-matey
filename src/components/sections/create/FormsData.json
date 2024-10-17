@@ -5,6 +5,7 @@
 	"close_at": "2024-10-16",
 	"number_recruited": 1024,
 	"held_at": "0645-06-12",
-	"deaprtment": ["m", "e", "grade-1", "grade-2", "grade-3", "grade-7"],
-	"sex": "male"
+	"department": ["m", "e"],
+	"sex": "male",
+	"grade": ["grade-1", "grade-2", "grade-3", "grade-7"]
 }
