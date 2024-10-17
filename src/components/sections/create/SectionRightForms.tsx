@@ -130,7 +130,7 @@ const SectionRightForms: FC = () => {
 								>
 									<input
 										type="checkbox"
-										name="deaprtment"
+										name="department"
 										value={item.id}
 										className=""
 									/>
@@ -159,7 +159,7 @@ const SectionRightForms: FC = () => {
 										type="radio"
 										name="sex"
 										value={item.id}
-										checked={item.id === 'both'}
+										defaultChecked={item.id === 'both'}
 										required
 									/>
 									<p>{item.text}</p>
@@ -183,7 +183,7 @@ const SectionRightForms: FC = () => {
 								>
 									<input
 										type="checkbox"
-										name="deaprtment"
+										name="grade"
 										value={item.id}
 										className=""
 									/>
