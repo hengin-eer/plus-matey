@@ -96,7 +96,7 @@ const SectionRightForms: FC = () => {
 					<input
 						type="number"
 						max={1024}
-						name="max_number_recruited"
+						name="number_recruited"
 						placeholder="募集人数を入力してください"
 						className="px-4 py-2 w-full rounded-sm bg-light-gray text-foreground outline-none placeholder:text-base placeholder:text-gray focus-visible:outline-gray transition-all duration-300"
 						required
