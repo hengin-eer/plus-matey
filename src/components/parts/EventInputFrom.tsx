@@ -1,9 +1,9 @@
-import { FC, ReactElement } from 'react';
+import type { FC, ReactNode } from 'react';
 
 type Props = {
 	title: string;
 	summary?: string;
-	children: ReactElement;
+	children: ReactNode;
 	isRequired?: boolean;
 };
 
