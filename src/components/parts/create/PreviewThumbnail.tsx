@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { ChangeEvent, useState } from 'react';
 
 const PreviewThumbnail = () => {
@@ -26,8 +27,10 @@ const PreviewThumbnail = () => {
 					className="hidden"
 				/>
 			</label>
-			<img
-				className="mt-6 max-h-[270px]"
+			<Image
+				className="mt-6 max-h-[270px] w-auto"
+				width={1600}
+				height={900}
 				src={previewSrc}
 				alt="プレビュー画像"
 			/>
