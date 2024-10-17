@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 
-const SectionFooter: FC = () => {
+// TODO: コンポ名の変更
+const SectionOwner: FC = () => {
 	return (
 		<section className="">
 			<p>チーム情報はこちら</p>
@@ -9,4 +10,4 @@ const SectionFooter: FC = () => {
 	);
 };
 
-export default SectionFooter;
+export default SectionOwner;

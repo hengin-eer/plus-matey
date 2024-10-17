@@ -1,6 +1,7 @@
 import PreviewThumbnail from '@/components/parts/create/PreviewThumbnail';
 import EventInputForm from '@/components/parts/create/EventInputFrom';
 import { type FC } from 'react';
+import SectionOwner from './SectionOwner';
 
 const SectionLeftForms: FC = () => {
 	return (
@@ -41,6 +42,8 @@ const SectionLeftForms: FC = () => {
 			>
 				<PreviewThumbnail />
 			</EventInputForm>
+
+			<SectionOwner />
 		</section>
 	);
 };
