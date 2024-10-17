@@ -12,7 +12,7 @@ const SectionHeading: FC = () => {
 	};
 
 	return (
-		<section className="sticky top-5 flex justify-between px-6 py-4 w-full bg-white border border-gray rounded-2xl shadow-md">
+		<section className="sticky top-5 z-20 flex justify-between px-6 py-4 w-full bg-white border border-gray rounded-2xl shadow-md">
 			<div className="flex items-center gap-6">
 				<Link href="/manage">
 					<Icon

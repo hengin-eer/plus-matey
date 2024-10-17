@@ -1,5 +1,9 @@
+'use client';
+
+import RichDatePicker from '@/components/parts/create/RichDatePicker';
 import EventInputForm from '@/components/parts/EventInputFrom';
-import type { FC } from 'react';
+import PageHeading from '@/components/parts/PageHeading';
+import { useState, type FC } from 'react';
 
 const SectionRightForms: FC = () => {
 	const departmentList = [
@@ -22,6 +26,10 @@ const SectionRightForms: FC = () => {
 	];
 
 	const sexList = [
+		{
+			id: 'both',
+			text: '性別問わず',
+		},
 		{
 			id: 'male',
 			text: '男性',
@@ -63,93 +71,130 @@ const SectionRightForms: FC = () => {
 		},
 	];
 
+	const [closeAt, setCloseAt] = useState({
+		startDate: null,
+		endDate: null,
+	});
+
+	const [heldAt, setHeldAt] = useState({
+		startDate: null,
+		endDate: null,
+	});
+
 	return (
-		<section className="w-[400px] flex flex-col gap-6">
+		<section className="w-[320px] flex flex-col gap-6">
+			<EventInputForm
+				title="募集締め切り"
+				summary="イベントの募集締め切り期限をここで設定します。"
+				isRequired
+			>
+				<RichDatePicker name="close_at" value={closeAt} setValue={setCloseAt} />
+			</EventInputForm>
+
+			<EventInputForm title="募集人数" isRequired>
+				<label>
+					<input
+						type="number"
+						max={1024}
+						name="max_number_recruited"
+						placeholder="募集人数を入力してください"
+						className="px-4 py-2 w-full rounded-sm bg-light-gray text-foreground outline-none placeholder:text-base placeholder:text-gray focus-visible:outline-gray transition-all duration-300"
+						required
+					/>
+				</label>
+			</EventInputForm>
+
 			<EventInputForm
 				title="開催日時"
 				summary="イベント開催日時を入力してください。"
 				isRequired
 			>
-				<label>
-					{/* 
-							TODO: ライブラリを使用してリッチなUIにする
-							TODO: 今日以前の日時を選択できないようにする
-							*/}
-					<input type="date" name="held_at" className="" required />
-				</label>
+				<RichDatePicker name="held_at" value={heldAt} setValue={setHeldAt} />
 			</EventInputForm>
 
-			<EventInputForm
-				title="学科の制限"
-				summary="
-					学科を絞って募集したい場合は選択してください。<br/>
-					デフォルトは全学科。
-				"
-			>
-				<div className="flex flex-col gap-4">
-					{departmentList.map((item) => (
-						<label
-							key={item.id}
-							className="flex items-center gap-4 select-none"
-						>
-							<input
-								type="checkbox"
-								name="deaprtment"
-								value={item.id}
-								className=""
-							/>
-							{/* TODO: チップ風のUIコンポと差し替える */}
-							<p>{item.text}</p>
-						</label>
-					))}
-				</div>
-			</EventInputForm>
+			<section>
+				<PageHeading>オプション</PageHeading>
+				<div className="flex flex-col gap-6">
+					<EventInputForm
+						title="学科"
+						summary="
+							学科を絞って募集したい場合は選択してください。<br/>
+							デフォルトは全学科。
+						"
+					>
+						<div className="flex flex-col gap-4">
+							{departmentList.map((item) => (
+								<label
+									key={item.id}
+									className="flex items-center gap-4 select-none"
+								>
+									<input
+										type="checkbox"
+										name="deaprtment"
+										value={item.id}
+										className=""
+									/>
+									{/* TODO: チップ風のUIコンポと差し替える */}
+									<p>{item.text}</p>
+								</label>
+							))}
+						</div>
+					</EventInputForm>
 
-			<EventInputForm
-				title="性別の制限"
-				summary="
-					性別を絞って募集したい場合は選択してください。<br/>
-					デフォルトは性別問わず。
-				"
-			>
-				<div className="flex flex-col gap-4">
-					{sexList.map((item) => (
-						<label
-							key={item.id}
-							className="flex items-center gap-4 select-none"
-						>
-							<input type="radio" name="sex" value={item.id} className="" />
-							<p>{item.text}</p>
-						</label>
-					))}
-				</div>
-			</EventInputForm>
+					<EventInputForm
+						title="性別"
+						summary="
+							性別を絞って募集したい場合は選択してください。<br/>
+							デフォルトは性別問わず。
+						"
+						isRequired
+					>
+						<div className="flex flex-col gap-4">
+							{sexList.map((item) => (
+								<label
+									key={item.id}
+									className="flex items-center gap-4 select-none"
+								>
+									<input
+										type="radio"
+										name="sex"
+										value={item.id}
+										checked={item.id === 'both'}
+										required
+									/>
+									<p>{item.text}</p>
+								</label>
+							))}
+						</div>
+					</EventInputForm>
 
-			<EventInputForm
-				title="学年の制限"
-				summary="
-					学年を絞って募集したい場合は選択してください。<br/>
-					デフォルトは全学年。
-				"
-			>
-				<div className="flex flex-col gap-4">
-					{gradeList.map((item) => (
-						<label
-							key={item.id}
-							className="flex items-center gap-4 select-none"
-						>
-							<input
-								type="checkbox"
-								name="deaprtment"
-								value={item.id}
-								className=""
-							/>
-							{/* TODO: チップ風のUIコンポと差し替える */}
-							<p>{item.text}</p>
-						</label>
-					))}
+					<EventInputForm
+						title="学年"
+						summary="
+							学年を絞って募集したい場合は選択してください。<br/>
+							デフォルトは全学年。
+						"
+					>
+						<div className="flex flex-col gap-4">
+							{gradeList.map((item) => (
+								<label
+									key={item.id}
+									className="flex items-center gap-4 select-none"
+								>
+									<input
+										type="checkbox"
+										name="deaprtment"
+										value={item.id}
+										className=""
+									/>
+									{/* TODO: チップ風のUIコンポと差し替える */}
+									<p>{item.text}</p>
+								</label>
+							))}
+						</div>
+					</EventInputForm>
 				</div>
-			</EventInputForm>
+			</section>
 		</section>
 	);
 };

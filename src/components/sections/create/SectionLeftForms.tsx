@@ -1,6 +1,7 @@
 import PreviewThumbnail from '@/components/parts/create/PreviewThumbnail';
+import RichDatePicker from '@/components/parts/create/RichDatePicker';
 import EventInputForm from '@/components/parts/EventInputFrom';
-import type { FC } from 'react';
+import { type FC } from 'react';
 
 const SectionLeftForms: FC = () => {
 	return (
@@ -40,31 +41,6 @@ const SectionLeftForms: FC = () => {
 				summary="イベント紹介画面にて表示されるサムネイル画像を設定します"
 			>
 				<PreviewThumbnail />
-			</EventInputForm>
-
-			<EventInputForm title="募集締め切り" isRequired>
-				<label>
-					{/* 
-							TODO: ライブラリを使用してリッチなUIにする
-							TODO: 今日以前の日時を選択できないようにする
-							*/}
-					<input type="date" name="close_at" className="" required />
-				</label>
-			</EventInputForm>
-
-			<EventInputForm title="募集人数" isRequired>
-				<label>
-					{/* 
-							TODO: ライブラリを使用してリッチなUIにする?
-							*/}
-					<input
-						type="number"
-						max={1024}
-						name="max_number_recruited"
-						className="px-4 py-2 rounded-sm bg-light-gray text-foreground outline-none placeholder:text-base placeholder:text-gray focus-visible:outline-gray transition-all duration-300"
-						required
-					/>
-				</label>
 			</EventInputForm>
 		</section>
 	);
