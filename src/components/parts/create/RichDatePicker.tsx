@@ -24,7 +24,6 @@ const RichDatePicker: FC<Props> = ({ name, value, setValue }) => {
 			showFooter
 			useRange={false}
 			asSingle
-			readOnly
 			inputName={name}
 			value={value}
 			onChange={(newData) => setValue(newData)}
