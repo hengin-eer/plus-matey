@@ -1,16 +1,14 @@
-'use client'; // TODO: ゆくゆくは状態管理を無くす
-
 import { Icon } from '@iconify/react/dist/iconify.js';
 import Link from 'next/link';
-import { useState, type FC } from 'react';
+import { type FC } from 'react';
 
-const SectionHeading: FC = () => {
-	const [isPublic, setIsPublic] = useState(false);
+type Props = {
+	isPublic: boolean;
+	setIsPublic: Function;
+};
 
-	const handleSubmit = () => {
-		setIsPublic(!isPublic);
-	};
-
+// TODO: isPublicはFirestoreから取得するようにする
+const SectionHeading: FC<Props> = ({ isPublic, setIsPublic }) => {
 	return (
 		<section className="sticky top-5 z-20 flex justify-between px-6 py-4 w-full bg-white border border-gray rounded-2xl shadow-md">
 			<div className="flex items-center gap-6">
@@ -29,7 +27,10 @@ const SectionHeading: FC = () => {
 				</p>
 
 				{isPublic && (
-					<button className="px-5 py-2 bg-light-gray border-2 border-primary-red rounded-full">
+					<button
+						onClick={() => setIsPublic(false)}
+						className="px-5 py-2 bg-light-gray border-2 border-primary-red rounded-full"
+					>
 						公開終了する
 					</button>
 				)}
@@ -53,10 +54,7 @@ const SectionHeading: FC = () => {
 				</button>
 
 				<button
-					// TODO: サブミット時の処理を書く（今はrequiredを避けるためにコメントアウト中）
-					// type="submit"
-					// onSubmit={() => handleSubmit()}
-					onClick={() => handleSubmit()}
+					type="submit"
 					className={`flex items-center gap-1 px-4 py-3 rounded-lg ${isPublic ? 'bg-primary-yellow' : 'bg-primary-green'}`}
 				>
 					<Icon
