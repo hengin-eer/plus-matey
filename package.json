@@ -11,12 +11,15 @@
 	},
 	"dependencies": {
 		"@headlessui/react": "^2.1.5",
+		"dayjs": "^1.11.13",
 		"next": "14.2.8",
 		"react": "^18",
-		"react-dom": "^18"
+		"react-dom": "^18",
+		"react-tailwindcss-datepicker": "^1.7.2"
 	},
 	"devDependencies": {
 		"@iconify/react": "^5.0.2",
+		"@tailwindcss/forms": "^0.5.9",
 		"@types/node": "^20",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
