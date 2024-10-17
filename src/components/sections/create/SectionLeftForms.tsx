@@ -1,6 +1,5 @@
 import PreviewThumbnail from '@/components/parts/create/PreviewThumbnail';
-import RichDatePicker from '@/components/parts/create/RichDatePicker';
-import EventInputForm from '@/components/parts/EventInputFrom';
+import EventInputForm from '@/components/parts/create/EventInputFrom';
 import { type FC } from 'react';
 
 const SectionLeftForms: FC = () => {

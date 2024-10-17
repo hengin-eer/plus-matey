@@ -1,7 +1,7 @@
 'use client';
 
 import RichDatePicker from '@/components/parts/create/RichDatePicker';
-import EventInputForm from '@/components/parts/EventInputFrom';
+import EventInputForm from '@/components/parts/create/EventInputFrom';
 import PageHeading from '@/components/parts/PageHeading';
 import { useState, type FC } from 'react';
 
