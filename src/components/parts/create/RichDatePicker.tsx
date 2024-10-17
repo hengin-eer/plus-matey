@@ -1,13 +1,10 @@
-import type { FC } from 'react';
-import Datepicker from 'react-tailwindcss-datepicker';
+import type { Dispatch, FC, SetStateAction } from 'react';
+import Datepicker, { DateValueType } from 'react-tailwindcss-datepicker';
 
 type Props = {
 	name: string;
-	value: {
-		startDate: Date | null;
-		endDate: Date | null;
-	};
-	setValue: Function;
+	value: DateValueType;
+	setValue: Dispatch<SetStateAction<DateValueType>>;
 };
 
 const RichDatePicker: FC<Props> = ({ name, value, setValue }) => {

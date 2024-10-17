@@ -5,7 +5,7 @@ import SectionOwner from './SectionOwner';
 
 const SectionLeftForms: FC = () => {
 	return (
-		<section className="max-w-[900px] w-full flex flex-col gap-8">
+		<section className="w-full lg:max-w-[900px] flex flex-col gap-8">
 			<EventInputForm title="タイトル" isRequired>
 				<label>
 					<input

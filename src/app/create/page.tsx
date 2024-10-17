@@ -9,7 +9,7 @@ function Create() {
 	type FormContents = {
 		title: string | null;
 		summary: string | null;
-		thumbnail: File | FormDataEntryValue | null;
+		thumbnail: File | string | null;
 		close_at: string | null;
 		number_recruited: number | null;
 		held_at: string | null;
@@ -18,19 +18,7 @@ function Create() {
 		grade: string[] | null;
 	};
 
-	const initialFormContents: FormContents = {
-		title: null,
-		summary: null,
-		thumbnail: null,
-		close_at: null,
-		number_recruited: null,
-		held_at: null,
-		department: null,
-		sex: null,
-		grade: null,
-	};
-
-	const [formContents, setFormContents] = useState(initialFormContents);
+	const [formContents, setFormContents] = useState<FormContents>();
 	// TODO: isPublicはFirestoreから取得するようにする
 	const [isPublic, setIsPublic] = useState(false);
 
@@ -61,7 +49,7 @@ function Create() {
 	console.log(formContents); // DEBUG:
 
 	return (
-		<main className="px-10">
+		<main className="px-5 lg:px-10">
 			<form
 				onSubmit={(e) => handleSubmit(e)}
 				className="pt-5 pb-20 flex flex-col gap-10"
@@ -74,7 +62,7 @@ function Create() {
 				<SectionHeading isPublic={isPublic} setIsPublic={setIsPublic} />
 
 				{/* TODO: レスポンシブ対応しましょう！！ */}
-				<div className="w-full flex justify-center gap-6">
+				<div className="mx-auto w-full flex flex-col justify-center gap-6 lg:flex-row">
 					<SectionLeftForms />
 					<SectionRightForms />
 				</div>

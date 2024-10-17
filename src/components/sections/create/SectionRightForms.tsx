@@ -4,6 +4,7 @@ import RichDatePicker from '@/components/parts/create/RichDatePicker';
 import EventInputForm from '@/components/parts/create/EventInputFrom';
 import PageHeading from '@/components/parts/PageHeading';
 import { useState, type FC } from 'react';
+import { DateValueType } from 'react-tailwindcss-datepicker';
 
 const SectionRightForms: FC = () => {
 	const departmentList = [
@@ -71,18 +72,18 @@ const SectionRightForms: FC = () => {
 		},
 	];
 
-	const [closeAt, setCloseAt] = useState({
+	const [closeAt, setCloseAt] = useState<DateValueType>({
 		startDate: null,
 		endDate: null,
 	});
 
-	const [heldAt, setHeldAt] = useState({
+	const [heldAt, setHeldAt] = useState<DateValueType>({
 		startDate: null,
 		endDate: null,
 	});
 
 	return (
-		<section className="w-[320px] flex flex-col gap-6">
+		<section className="w-full flex flex-col gap-6 lg:w-[320px]">
 			<EventInputForm
 				title="募集締め切り"
 				summary="イベントの募集締め切り期限をここで設定します。"
