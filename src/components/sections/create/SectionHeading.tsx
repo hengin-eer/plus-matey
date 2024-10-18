@@ -18,10 +18,12 @@ const SectionHeading: FC<Props> = ({ isPublic, setIsPublic }) => {
 	};
 
 	const stopEventPublic = () => {
+		const isStoppingAllowed = true;
+
 		alert('このイベントを削除しますか？');
 		handleClickMenu();
 
-		if (true) {
+		if (isStoppingAllowed) {
 			setIsPublic(false);
 		}
 	};
@@ -56,12 +58,12 @@ const SectionHeading: FC<Props> = ({ isPublic, setIsPublic }) => {
 
 			<div className="flex items-center gap">
 				<span
-					className="block p-2 rounded-md"
+					className="block px-2 py-1 rounded-md"
 					onClick={() => handleClickMenu()}
 				>
 					<Icon
 						icon="material-symbols-light:more-horiz"
-						className="size-8 text-foreground"
+						className="size-10 text-foreground"
 					/>
 				</span>
 
