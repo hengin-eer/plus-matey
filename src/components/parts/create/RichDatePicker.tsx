@@ -17,8 +17,8 @@ const RichDatePicker: FC<Props> = ({ name, value, setValue }) => {
 			"
 			primaryColor="blue"
 			popoverDirection="down"
-			showShortcuts
-			showFooter
+			// showShortcuts
+			// showFooter
 			useRange={false}
 			asSingle
 			inputName={name}
