@@ -28,10 +28,11 @@ const Select: FC<Props> = ({
 				className="w-full px-4 py-2 rounded-sm bg-light-gray text-foreground outline-none placeholder:text-base placeholder:text-gray focus-visible:outline-gray transition-all duration-300"
 				name={selectName}
 				aria-label={ariaLabel}
+				defaultValue={''}
 				required={required}
 			>
 				{dataList.map((item) => (
-					<option key={item.id} value={item.id} selected={item.id === ''}>
+					<option key={item.id} value={item.id}>
 						{item.name}
 					</option>
 				))}
