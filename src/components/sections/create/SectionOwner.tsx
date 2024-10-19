@@ -21,20 +21,20 @@ const SectionOwner: FC = () => {
 	// NOTE: チーム選択によってメンバーが変化する
 	const currentMemberList = [
 		{
-			id: 'e2119@s.akashi.ac.jp',
-			name: 'E2119 新庄都逸',
+			id: '123@gmail.com',
+			name: 'E0001 山田太郎',
 		},
 		{
-			id: 'e2120@s.akashi.ac.jp',
-			name: 'E2120 髙田了輔',
+			id: '223@gmail.com',
+			name: 'E0002 田中次郎',
 		},
 		{
-			id: 'e2123@s.akashi.ac.jp',
-			name: 'E2123 辻本神',
+			id: '323@gmail.com',
+			name: 'E0003 魚住花子',
 		},
 		{
-			id: 'e2126@s.akashi.ac.jp',
-			name: 'E2126 友田大揮',
+			id: '423@gmail.com',
+			name: 'E0004 明石太郎',
 		},
 	];
 
@@ -51,7 +51,6 @@ const SectionOwner: FC = () => {
 						selectName="teamId"
 						ariaLabel="運営チームの選択"
 						dataList={teamList}
-						required
 					/>
 
 					{/* NOTE: チームが無ければ作成するように促す */}
