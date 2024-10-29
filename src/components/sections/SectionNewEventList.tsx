@@ -162,13 +162,13 @@ const SectionNewEventList: FC = () => {
 							/>
 							<p className="text-xs">上級修剣士 ユージオ{item.acountname}</p>
 							{/* アカウント名 */}
-							<div className="flex rounded-full border border-primary-yellow-green text-primary-yellow-green items-center text-[10px] py-1 px-[6px] transition duration-300 hover:text-primary-green hover:border-primary-green">
+							<button className="flex rounded-full border border-primary-yellow-green text-primary-yellow-green items-center text-[10px] py-1 px-[6px] transition duration-300 hover:text-primary-green hover:border-primary-green">
 								<Icon
 									icon={'material-symbols-light:add-circle-outline-rounded'}
 									className="size-4"
 								/>
-								<button>フォローする</button>
-							</div>
+								フォローする
+							</button>
 						</div>
 					</div>
 				</div>
