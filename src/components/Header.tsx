@@ -77,7 +77,7 @@ const Header: FC = () => {
 
 				{/* イベント作成ボタン */}
 				<Link href="/create">
-					<button className="text-sm gap-1 flex items-center bg-white rounded-md border border-black pl-3 pr-5 py-[4px] transition-colors duration-300  hover:bg-primary-red hover:text-white">
+					<button className="text-sm gap-1 flex items-center bg-white rounded-md border border-black pl-3 pr-5 py-[4px] transition-colors duration-300  hover:bg-primary-red hover:text-white active:scale-95">
 						<Icon
 							icon="material-symbols-light:add-circle-outline-rounded"
 							className="size-8"
