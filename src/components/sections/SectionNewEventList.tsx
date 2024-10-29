@@ -167,7 +167,7 @@ const SectionNewEventList: FC = () => {
 									icon={'material-symbols-light:add-circle-outline-rounded'}
 									className="size-4"
 								/>
-								フォローする
+								<p>フォローする</p>
 							</button>
 						</div>
 					</div>
