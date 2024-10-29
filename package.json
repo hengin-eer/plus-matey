@@ -12,6 +12,7 @@
 	"dependencies": {
 		"@headlessui/react": "^2.1.5",
 		"dayjs": "^1.11.13",
+		"firebase": "^11.0.1",
 		"next": "14.2.8",
 		"react": "^18",
 		"react-dom": "^18",
@@ -20,6 +21,7 @@
 	"devDependencies": {
 		"@iconify/react": "^5.0.2",
 		"@tailwindcss/forms": "^0.5.9",
+		"@types/firebase": "^2.4.32",
 		"@types/node": "^20",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
