@@ -1,0 +1,14 @@
+.summary {
+	&::-webkit-details-marker {
+		display: none;
+		flex: auto;
+	}
+
+
+	&::marker {
+		display: none;
+		flex: auto;
+	}
+}
+
+
