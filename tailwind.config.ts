@@ -31,6 +31,29 @@ const config: Config = {
 			male: '#B0D9FF',
 			female: '#FFB0B5',
 		},
+		animation: {
+			'fade-in': 'fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both',
+			'fade-out':
+				'fade-out 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both',
+		},
+		keyframes: {
+			'fade-in': {
+				'0%': {
+					opacity: '0',
+				},
+				to: {
+					opacity: '1',
+				},
+			},
+			'fade-out': {
+				'0%': {
+					opacity: '1',
+				},
+				to: {
+					opacity: '0',
+				},
+			},
+		},
 	},
 	plugins: [],
 };
