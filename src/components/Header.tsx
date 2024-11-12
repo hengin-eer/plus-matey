@@ -102,7 +102,7 @@ const Header: FC = () => {
 					</div>
 					<MenuItems
 						transition
-						className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md shadow-lg bg-white transiton focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+						className="absolute right-0 z-30 mt-2 w-56 origin-top-right rounded-md shadow-lg bg-white transiton focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
 					>
 						{/* メニューボタン一覧 */}
 						<div className="px-6 py-4">
