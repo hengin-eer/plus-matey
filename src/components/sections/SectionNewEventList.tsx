@@ -4,13 +4,15 @@ import { Icon } from '@iconify/react';
 import { FC, useState } from 'react';
 import PageHeading from '../parts/PageHeading';
 import Image from 'next/image';
-import styles from './SectionNewEventList.module.css';
+
 
 const SectionNewEventList: FC = () => {
 	const [isApplyButtonClicked, setIsApplyButtonClicked] = useState(false);
 	const [isFavoriteButtonClicked, setIsFavoriteButtonClicked] = useState(false);
 	const [isDetailButtonClicked, setIsDetailButtonClicked] = useState(false);
+	const [isFollowed, setIsFollowed] = useState(false);
 
+	// データベース接続構造体
 	const eventElements = [
 		{
 			eventname: '',
@@ -25,11 +27,12 @@ const SectionNewEventList: FC = () => {
 	return (
 		<section className="w-full">
 			<PageHeading>新着イベント</PageHeading>
+			<p className="transition opacity-0 hover:opacity-100">o-suke</p>
 
 			{eventElements.map((item) => (
 				<div
 					className="bg-white text-black rounded-md px-5 pt-6 gap-5"
-					key={item.eventname}
+					key={item.eventname} //キーをイベントの名前に設定
 				>
 					<div className="flex">
 						<div className="px-4 py-6 flex flex-col gap-5">
@@ -64,36 +67,41 @@ const SectionNewEventList: FC = () => {
 								{item.eventname}system call enhance armament
 							</h1>
 							<p className="text-xs">{item.eventheading}咲け青薔薇</p>
-							<details
+
+							{/* todo:カーソル判定の縮小 */}
+							<button
+								className="flex items-center transitoin delay-150 duration-300 w-max"
 								onClick={() => setIsDetailButtonClicked(!isDetailButtonClicked)}
 							>
-								{/* todo:カーソル判定の縮小 */}
-								<summary
-									className={`${styles.summary} flex items-center transitoin delay-150 duration-300 w-auto`}
-								>
-									<Icon
-										icon={
-											'material-symbols-light:arrow-drop-down-circle-outline-rounded'
-										}
-										className={
-											isDetailButtonClicked
-												? 'transition text-[18px] duration-300 rotate-0'
-												: 'transition text-[18px] duration-300 rotate-[-90deg]'
-										}
-									/>
+								<Icon
+									icon={
+										'material-symbols-light:arrow-drop-down-circle-outline-rounded'
+									}
+									className={`transition text-[18px] ${
+										isDetailButtonClicked
+											? 'duration-300 rotate-0'
+											: 'duration-300 rotate-[-90deg]'
+									}`}
+								/>
 
-									<p className="text-xs transition duration-300 hover:scale-105">
-										もっと見る
-									</p>
-								</summary>
-								<div className="answer">
-									<p className="text-xs">
-										{item.eventdetail}
-										system call jenerate sarmal element form element arow shape
-										discharge
-									</p>
-								</div>
-							</details>
+								<p className="text-xs transition duration-300">
+									{isDetailButtonClicked ? '閉じる' : 'もっと見る'}
+								</p>
+							</button>
+							<div>
+								<p
+									className={`text-xs transition duration-300${
+										isDetailButtonClicked ? ' opacity-100' : ' opacity-0'
+									}`}
+								>
+									{item.eventdetail}
+									system call jenerate sarmal element form element arow shape
+									discharge
+									こんにちは初音ミクだよー音域テストをはじめるよ普通の人なら出ないけどこうおんちゅうのおまえらならばよゆうでうたえるねはい
+									かっぱっぱっぱーはなかっぱわくわくドキドキしたくなったならねえくるくる手と手をつなごうよニコニコの魔法で涙はにじになるおどろうららんららんらんらん
+								</p>
+							</div>
+
 							{/* todo:募集条件 */}
 							{/* todo:スキルタグ */}
 						</div>
@@ -106,8 +114,8 @@ const SectionNewEventList: FC = () => {
 								onClick={() => setIsApplyButtonClicked(!isApplyButtonClicked)}
 								className={
 									isApplyButtonClicked
-										? 'transition text-xs flex items-center rounded-md border border-black  px-2 py-[6px] duration-300 hover:scale-105 text-black bg-primary-green '
-										: 'transition text-xs flex items-center rounded-md border border-black  px-2 py-[6px] duration-300 hover:scale-105 text-black bg-primary-red '
+										? 'transition text-xs flex items-center rounded-md border border-black  px-2 py-[6px] text-black bg-primary-red active:scale-95'
+										: 'transition text-xs flex items-center rounded-md border border-black  px-2 py-[6px] text-black bg-primary-green active:scale-95'
 								}
 							>
 								<div className="transition duration-300">
@@ -125,8 +133,8 @@ const SectionNewEventList: FC = () => {
 								</div>
 								<p className="transition duraition-300">
 									{isApplyButtonClicked
-										? 'イベントに申し込む'
-										: '申し込みをキャンセル'}
+										? '申し込みをキャンセル'
+										: 'イベントに申し込む'}
 								</p>
 							</button>
 							{/* お気に入りボタン */}
@@ -134,7 +142,7 @@ const SectionNewEventList: FC = () => {
 								onClick={() =>
 									setIsFavoriteButtonClicked(!isFavoriteButtonClicked)
 								}
-								className="text-xs flex items-center rounded-md border border-black  px-2 py-[6px] transition delay-150 duration-300 hover:scale-105 text-black bg-light-gray "
+								className="text-xs flex items-center rounded-md border border-black  px-2 py-[6px] transition text-black bg-light-gray active:scale-95"
 							>
 								<Icon
 									icon={'material-symbols:bookmark-star-rounded'}
@@ -160,14 +168,19 @@ const SectionNewEventList: FC = () => {
 								alt="icon"
 								className="h-[40px] w-[40px] aspect-square"
 							/>
-							<p className="text-xs">上級修剣士 ユージオ{item.acountname}</p>
+							<p className="text-xs opacity-100">
+								上級修剣士 ユージオ{item.acountname}
+							</p>
 							{/* アカウント名 */}
-							<button className="flex rounded-full border border-primary-yellow-green text-primary-yellow-green items-center text-[10px] py-1 px-[6px] transition duration-300 hover:text-primary-green hover:border-primary-green">
+							<button
+								className="flex rounded-full border border-primary-yellow-green text-primary-yellow-green items-center text-[10px] py-1 px-[6px] transition duration-300 hover:text-primary-green hover:border-primary-green active:scale-95"
+								onClick={() => setIsFollowed(!isFollowed)}
+							>
 								<Icon
 									icon={'material-symbols-light:add-circle-outline-rounded'}
 									className="size-4"
 								/>
-								<p>フォローする</p>
+								<p>{isFollowed ? 'フォロー済み' : 'フォローする'}</p>
 							</button>
 						</div>
 					</div>
