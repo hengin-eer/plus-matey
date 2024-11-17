@@ -1,4 +1,5 @@
-import { auth, signIn, signOut } from '@/auth';
+import { signInAction, signOutAction } from '@/app/actions/auth';
+import { auth, signIn } from '@/auth';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { Icon } from '@iconify/react';
 import Image from 'next/image';
@@ -51,14 +52,7 @@ const HeaderNav: FC = async () => {
 
 	if (!session?.user)
 		return (
-			<form
-				action={async () => {
-					'use server';
-					await signIn('google', {
-						redirectTo: '/',
-					});
-				}}
-			>
+			<form action={signInAction}>
 				<button
 					className="flex items-center gap-1 px-3 py-1 bg-primary-green border border-foreground rounded-full"
 					type="submit"
@@ -73,68 +67,64 @@ const HeaderNav: FC = async () => {
 		);
 
 	return (
-		<nav className="flex gap-[24px] items-center">
-			<ul className="text-base flex gap-[40px] text-primary-red">
-				{headerLinkList.map((item) => (
-					<Link
-						href={item.url}
-						key={item.url}
-						className="hover:text-primary-pink"
-					>
-						{item.name}
-					</Link>
-				))}
-			</ul>
-
-			<Link href="/create">
-				<button className="text-sm gap-1 flex items-center bg-white rounded-md border border-black pl-3 pr-5 py-[4px] transition-colors duration-300  hover:bg-primary-red hover:text-white">
-					<Icon
-						icon="material-symbols-light:add-circle-outline-rounded"
-						className="size-8"
-					/>
-					<p className="text-xs">イベントを作成</p>
-				</button>
-			</Link>
-
-			<Menu as="div" className="relative text-left items-center">
-				<div>
-					{/* NOTE: アカウントのアイコン */}
-					<MenuButton className="flex w-max items-center justify-center hover:bg-light-gray transition duration-300 hover:scale-95">
-						<Image
-							src={session.user.image || '/kirito.png'}
-							width={500}
-							height={500}
-							alt="icon"
-							className="h-[40px] w-[40px] aspect-square"
-						/>
-					</MenuButton>
-				</div>
-				<MenuItems
-					transition
-					className="absolute right-0 z-30 mt-2 w-56 origin-top-right rounded-md shadow-lg bg-white transiton focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
-				>
-					{/* NOTE: メニューボタン一覧 */}
-					<div className="px-6 py-4">
-						{headerMenuItems.map((item) => (
-							<MenuItem key={item.icon}>
-								<Link
-									href={item.url}
-									className="flex gap-2 border-b border-gray transition-colors duration-300 hover:bg-light-gray px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 items-center"
-								>
-									<Icon icon={item.icon} className="size-8 text-primary-red " />
-									{item.name}
-								</Link>
-							</MenuItem>
-						))}
-
-						{/* NOTE: ログアウトボタン */}
-						<form
-							action={async () => {
-								// TODO: ログアウトできていないっぽいので確認しよ
-								'use server';
-								await signOut();
-							}}
+		<form action={signOutAction}>
+			<nav className="flex gap-[24px] items-center">
+				<ul className="text-base flex gap-[40px] text-primary-red">
+					{headerLinkList.map((item) => (
+						<Link
+							href={item.url}
+							key={item.url}
+							className="hover:text-primary-pink"
 						>
+							{item.name}
+						</Link>
+					))}
+				</ul>
+
+				<Link href="/create">
+					<button className="text-sm gap-1 flex items-center bg-white rounded-md border border-black pl-3 pr-5 py-[4px] transition-colors duration-300  hover:bg-primary-red hover:text-white">
+						<Icon
+							icon="material-symbols-light:add-circle-outline-rounded"
+							className="size-8"
+						/>
+						<p className="text-xs">イベントを作成</p>
+					</button>
+				</Link>
+
+				<Menu as="div" className="relative text-left items-center">
+					<div>
+						{/* NOTE: アカウントのアイコン */}
+						<MenuButton className="flex w-max items-center justify-center hover:bg-light-gray transition duration-300 hover:scale-95">
+							<Image
+								src={session.user.image || '/kirito.png'}
+								width={500}
+								height={500}
+								alt="icon"
+								className="h-[40px] w-[40px] aspect-square rounded-full"
+							/>
+						</MenuButton>
+					</div>
+					<MenuItems
+						transition
+						className="absolute right-0 z-30 mt-2 w-56 origin-top-right rounded-md shadow-lg bg-white transiton focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+					>
+						{/* NOTE: メニューボタン一覧 */}
+						<div className="px-6 py-4">
+							{headerMenuItems.map((item) => (
+								<MenuItem key={item.icon}>
+									<Link
+										href={item.url}
+										className="flex gap-2 border-b border-gray transition-colors duration-300 hover:bg-light-gray px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 items-center"
+									>
+										<Icon
+											icon={item.icon}
+											className="size-8 text-primary-red "
+										/>
+										{item.name}
+									</Link>
+								</MenuItem>
+							))}
+
 							<MenuItem>
 								<button
 									type="submit"
@@ -147,11 +137,11 @@ const HeaderNav: FC = async () => {
 									サインアウト
 								</button>
 							</MenuItem>
-						</form>
-					</div>
-				</MenuItems>
-			</Menu>
-		</nav>
+						</div>
+					</MenuItems>
+				</Menu>
+			</nav>
+		</form>
 	);
 };
 
