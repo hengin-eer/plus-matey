@@ -3,65 +3,47 @@
 import SectionHeading from '@/components/sections/create/SectionHeading';
 import SectionLeftForms from '@/components/sections/create/SectionLeftForms';
 import SectionRightForms from '@/components/sections/create/SectionRightForms';
-import { FormEvent, useState } from 'react';
+import { FormEvent } from 'react';
+import { createEventAction } from '../actions/manageEventAction';
+import { useRouter } from 'next/navigation';
 
 function Create() {
-	type FormContents = {
-		title: string | null;
-		summary: string | null;
-		thumbnail: File | string | null;
-		close_at: string | null;
-		number_recruited: number | null;
-		held_at: string | null;
-		department: string[] | null;
-		sex: string | null;
-		grade: string[] | null;
-	};
+	const router = useRouter();
 
-	const [formContents, setFormContents] = useState<FormContents>();
-	// TODO: isPublicはFirestoreから取得するようにする
-	const [isPublic, setIsPublic] = useState(false);
-
-	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+	const handleAction = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const formData = new FormData(e.currentTarget);
-		const output: FormContents = {
-			title: formData.get('title') as string,
-			summary: formData.get('summary') as string,
+		const output = {
+			title: formData.get('title'),
+			summary: formData.get('summary'),
 			thumbnail: formData.get('thumbnail'),
-			close_at: formData.get('close_at') as string,
-			number_recruited: formData.get('number_recruited') as unknown as number,
-			held_at: String(formData.get('held_at')) as string,
-			department: formData.get('department') as unknown as string[],
-			sex: formData.get('sex') as string,
-			grade: formData.get('grade') as unknown as string[],
+			close_at: formData.get('close_at'),
+			number_recruited: formData.get('number_recruited'),
+			held_at: String(formData.get('held_at')),
+			department: formData.get('department'),
+			sex: formData.get('sex'),
+			grade: formData.get('grade'),
+			// オーナー情報（問い合わせフォームとかも）も追加しよう
 		};
 
-		// NOTE: 編集内容が変更されたかどうかチェック
-		if (JSON.stringify(output) !== JSON.stringify(formContents)) {
-			setFormContents(output);
-		} else {
-			console.log('😄😄😄: ', '状態は変わっていないよ！');
-		}
-		setIsPublic(formData.get('title') !== null);
-	};
+		console.log(output); // DEBUG:
 
-	console.log(formContents); // DEBUG:
+		const res = await createEventAction(formData);
+
+		console.log(res);
+
+		if (res?.success) {
+			router.push(`/manage/done?message=${res.message}`);
+		} else {
+			alert(res.message);
+		}
+	};
 
 	return (
 		<main className="px-5 lg:px-10">
-			<form
-				onSubmit={(e) => handleSubmit(e)}
-				className="pt-5 pb-20 flex flex-col gap-10"
-			>
-				{/* 
-				NOTE: Server Actionを使って実装
-				TODO: 暫定的に固定幅にしている。後でレスポンシブの設定をする
-				 */}
+			<form onSubmit={handleAction} className="pt-5 pb-20 flex flex-col gap-10">
+				<SectionHeading isPublic={false} />
 
-				<SectionHeading isPublic={isPublic} setIsPublic={setIsPublic} />
-
-				{/* TODO: レスポンシブ対応しましょう！！ */}
 				<div className="mx-auto w-full flex flex-col justify-center gap-6 lg:flex-row">
 					<SectionLeftForms />
 					<SectionRightForms />
