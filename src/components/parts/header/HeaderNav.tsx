@@ -15,21 +15,17 @@ const HeaderNav: FC = async () => {
 			name: 'Plus Mateyとは',
 		},
 		{
-			url: '/bookmarked',
-			name: 'ブックマーク済み',
-		},
-		{
-			url: '/following',
-			name: 'フォロー中',
-		},
-		{
 			url: '/manage',
 			name: 'イベント管理',
 		},
-		{
-			url: '/new',
-			name: '新着イベント',
-		},
+		// {
+		// 	url: '/bookmarked',
+		// 	name: 'ブックマーク済み',
+		// },
+		// {
+		// 	url: '/following',
+		// 	name: 'フォロー中',
+		// },
 	];
 
 	const headerMenuItems = [
@@ -68,13 +64,13 @@ const HeaderNav: FC = async () => {
 
 	return (
 		<form action={signOutAction}>
-			<nav className="flex gap-[24px] items-center">
-				<ul className="text-base gap-[40px] text-primary-red hidden xl:flex">
+			<nav className="flex gap-4 md:gap-6 items-center">
+				<ul className="text-base gap-4 hidden md:flex">
 					{headerLinkList.map((item) => (
 						<Link
 							href={item.url}
 							key={item.url}
-							className="hover:text-primary-pink"
+							className="text-sm hover:text-gray transition"
 						>
 							{item.name}
 						</Link>
@@ -82,12 +78,12 @@ const HeaderNav: FC = async () => {
 				</ul>
 
 				<Link href="/create">
-					<button className="text-sm gap-1 flex items-center bg-white rounded-md border border-black pl-3 pr-3 py-[4px] transition-colors duration-300  hover:bg-primary-red hover:text-white active:scale-95 xl:pr-5">
+					<button className="text-sm flex items-center bg-white border rounded-full py-[5px] px-[5px] md:px-3">
 						<Icon
-							icon="material-symbols-light:add-circle-outline-rounded"
-							className="size-8"
+							icon="material-symbols-light:add-rounded"
+							className="size-8 md:size-7"
 						/>
-						<p className="text-xs hidden xl:inline-block">イベントを作成</p>
+						<p className="text-xs hidden md:inline-block">イベントを作成</p>
 					</button>
 				</Link>
 
