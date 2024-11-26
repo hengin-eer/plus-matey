@@ -2,6 +2,7 @@ import { initFirestore } from '@auth/firebase-adapter';
 import * as admin from 'firebase-admin';
 import { cert, getApps } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
+import { getStorage } from 'firebase-admin/storage';
 
 // const firebaseConfig = {
 // 	apiKey: process.env.FB_API_KEY,
@@ -20,10 +21,12 @@ if (!getApps()?.length) {
 			clientEmail: process.env.FB_CLIENT_EMAIL,
 			privateKey: process.env.FB_PRIVATE_KEY?.replace(/\\n/g, '\n'),
 		}),
+		storageBucket: process.env.FB_STORAGE_BUCKET,
 	});
 }
 
 export const db = getFirestore();
+export const storage = getStorage();
 
 // Auth.js用
 export const firestore = initFirestore({
