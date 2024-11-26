@@ -57,13 +57,13 @@ const Header: FC = () => {
 					width={629}
 					height={159}
 					alt="logo"
-					className="h-[50px] w-auto"
+					className="h-[40px] md:h-[50px] w-auto"
 				/>
 
 				{/* ヘッダーのリンク */}
 			</Link>
 			<nav className="flex gap-[24px] items-center">
-				<ul className="text-base flex gap-[40px] text-primary-red">
+				<ul className="text-base gap-[40px] text-primary-red hidden xl:flex">
 					{headerLinkList.map((item) => (
 						<Link
 							href={item.url}
@@ -77,12 +77,12 @@ const Header: FC = () => {
 
 				{/* イベント作成ボタン */}
 				<Link href="/create">
-					<button className="text-sm gap-1 flex items-center bg-white rounded-md border border-black pl-3 pr-5 py-[4px] transition-colors duration-300  hover:bg-primary-red hover:text-white active:scale-95">
+					<button className="text-sm gap-1 flex items-center bg-white rounded-md border border-black pl-3 pr-3 py-[4px] transition-colors duration-300  hover:bg-primary-red hover:text-white active:scale-95 xl:pr-5">
 						<Icon
 							icon="material-symbols-light:add-circle-outline-rounded"
 							className="size-8"
 						/>
-						<p className="text-xs">イベントを作成</p>
+						<p className="text-xs hidden xl:inline-block">イベントを作成</p>
 					</button>
 				</Link>
 
