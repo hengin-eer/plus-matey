@@ -13,60 +13,33 @@ const SectionNewEventList: FC = () => {
 	const [isFollowed, setIsFollowed] = useState(false);
 
 	// データベース接続構造体
+	const numberOfEvent = '100';
 	const eventElements = [
 		{
-			eventname: '',
-			eventdetail: '',
-			eventheading: '',
-			recuruitingdate: '',
-			recuruitingpeople: '',
-			iconimage: '',
-			acountname: '',
+			eventname: 'system call enhance armament',
+			eventdetail:
+				'system call jenerate sarmal element form element arow shape discharge',
+			eventheading: '咲け青薔薇',
+			recuruitingdate: '6/24(月)',
+			recuruitingpeople: '1 / 3',
+			iconimage: '/kirito.png',
+			acountname: '上級修剣士 ユージオ',
 		},
 	];
 	return (
 		<section className="w-full">
-			<PageHeading>新着イベント</PageHeading>
-			<p className="transition opacity-0 hover:opacity-100">o-suke</p>
+			<PageHeading>{`新着イベント (${numberOfEvent}件)`}</PageHeading>
 
 			{eventElements.map((item) => (
 				<div
 					className="bg-white text-black rounded-md px-5 pt-6 gap-5"
 					key={item.eventname} //キーをイベントの名前に設定
 				>
-					<div className="flex">
-						<div className="px-4 py-6 flex flex-col gap-5">
-							{/* 募集締め切り */}
-							<div className="px-3 py-2 bg-light-gray rounded-md">
-								<p className="text-xs text-black">募集締め切り</p>
-								<p className="text-2xl place-content-center text-black">
-									{/* todo:締め切りが近づくと文字色をかえる */}
-									{/* todo:締め切り間近をだす */}
-									{/* todo:締め切り日時*/}
-									{item.recuruitingdate}6/24（月）
-								</p>
-							</div>
-							{/* 募集人数 */}
-							<div className="px-3 py-2 bg-light-gray rounded-md">
-								<p className="text-xs text-black">募集人数</p>
-								<div className="flex space-x-3 text-center">
-									<p className="text-2xl place-content-center text-black">
-										{/* todo:残り人数が少なくなったら文字色をかえる */}
-										{/* todo:残り人数わずかをだす */}
-										{/* todo:募集人数 */}
-										{item.recuruitingpeople}1 / 3
-									</p>
-									<p className="text-base py-1">人</p>
-								</div>
-							</div>
-						</div>
-
-						{/* イベント内容 */}
+					{/* イベント内容 */}
+					<div className="flex flex-col gap-7 place-content-start xl:flex-row-reverse">
 						<div className="flex flex-col gap-7">
-							<h1 className="text-2xl">
-								{item.eventname}system call enhance armament
-							</h1>
-							<p className="text-xs">{item.eventheading}咲け青薔薇</p>
+							<h1 className="text-2xl">{item.eventname}</h1>
+							<p className="text-xs">{item.eventheading}</p>
 
 							{/* todo:カーソル判定の縮小 */}
 							<button
@@ -92,23 +65,47 @@ const SectionNewEventList: FC = () => {
 								<p
 									className={`text-xs transition duration-300${
 										isDetailButtonClicked ? ' opacity-100' : ' opacity-0'
-									}`}
+									}`} //TODO：hiddenにしないとテキストの大きさ分の謎の空白できる
 								>
 									{item.eventdetail}
-									system call jenerate sarmal element form element arow shape
-									discharge
-									こんにちは初音ミクだよー音域テストをはじめるよ普通の人なら出ないけどこうおんちゅうのおまえらならばよゆうでうたえるねはい
-									かっぱっぱっぱーはなかっぱわくわくドキドキしたくなったならねえくるくる手と手をつなごうよニコニコの魔法で涙はにじになるおどろうららんららんらんらん
 								</p>
 							</div>
 
 							{/* todo:募集条件 */}
 							{/* todo:スキルタグ */}
 						</div>
+
+						<div className="flex flex-col xl:flex-row">
+							<div className="px-4 py-6 flex flex-row xl:flex-col gap-5 ">
+								{/* 募集締め切り */}
+								<div className="px-3 py-2 bg-light-gray rounded-md w-full text-center xl:text-start">
+									<p className="text-xs text-black">募集締め切り</p>
+									<p className="text-2xl place-content-center text-black">
+										{/* todo:締め切りが近づくと文字色をかえる */}
+										{/* todo:締め切り間近をだす */}
+										{/* todo:締め切り日時*/}
+										{item.recuruitingdate}
+									</p>
+								</div>
+								{/* 募集人数 */}
+								<div className="px-3 py-2 bg-light-gray rounded-md w-full text-center xl:text-start">
+									<p className="text-xs text-black">募集人数</p>
+									<div className="flex space-x-3 place-content-center xl:text-start xl:place-content-start">
+										<p className="text-2xl text-black">
+											{/* todo:残り人数が少なくなったら文字色をかえる */}
+											{/* todo:残り人数わずかをだす */}
+											{/* todo:募集人数 */}
+											{item.recuruitingpeople}
+										</p>
+										<p className="text-base py-1">人</p>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 
-					<div className="py-3 w-full border-t border-gray flex justify-between">
-						<div className="gap-5 flex">
+					<div className="py-3 w-full border-t gap-5 border-gray flex justify-between flex-col-reverse xl:flex-row ">
+						<div className="gap-5 flex place-content-center">
 							{/* 申し込みボタン */}
 							<button
 								onClick={() => setIsApplyButtonClicked(!isApplyButtonClicked)}
@@ -131,7 +128,7 @@ const SectionNewEventList: FC = () => {
 										/>
 									)}
 								</div>
-								<p className="transition duraition-300">
+								<p className="transition duraition-300 ">
 									{isApplyButtonClicked
 										? '申し込みをキャンセル'
 										: 'イベントに申し込む'}
@@ -142,7 +139,7 @@ const SectionNewEventList: FC = () => {
 								onClick={() =>
 									setIsFavoriteButtonClicked(!isFavoriteButtonClicked)
 								}
-								className="text-xs flex items-center rounded-md border border-black  px-2 py-[6px] transition text-black bg-light-gray active:scale-95"
+								className="text-xs flex items-center rounded-md border border-black px-7 py-[6px] transition text-black bg-light-gray active:scale-95 xl:px-2"
 							>
 								<Icon
 									icon={'material-symbols:bookmark-star-rounded'}
@@ -152,7 +149,7 @@ const SectionNewEventList: FC = () => {
 											: 'size-8 text-gray duration-300'
 									}
 								/>
-								<p>
+								<p className="hidden xl:inline-block">
 									{isFavoriteButtonClicked
 										? 'お気に入り済み'
 										: 'お気に入り追加'}
@@ -160,17 +157,15 @@ const SectionNewEventList: FC = () => {
 							</button>
 						</div>
 
-						<div className="flex items-center gap-3">
+						<div className="flex flex-row items-center gap-3 place-content-center">
 							<Image
-								src="/kirito.png" //{item.iconimage}
+								src={item.iconimage}
 								width={500}
 								height={500}
 								alt="icon"
 								className="h-[40px] w-[40px] aspect-square"
 							/>
-							<p className="text-xs opacity-100">
-								上級修剣士 ユージオ{item.acountname}
-							</p>
+							<p className="text-xs opacity-100">{item.acountname}</p>
 							{/* アカウント名 */}
 							<button
 								className="flex rounded-full border border-primary-yellow-green text-primary-yellow-green items-center text-[10px] py-1 px-[6px] transition duration-300 hover:text-primary-green hover:border-primary-green active:scale-95"
