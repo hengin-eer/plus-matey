@@ -32,6 +32,7 @@ const config: Config = {
 			'department-all': '#B6A4C7',
 			male: '#B0D9FF',
 			female: '#FFB0B5',
+			both: '#F0F4FC',
 		},
 		animation: {
 			'fade-in': 'fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both',
