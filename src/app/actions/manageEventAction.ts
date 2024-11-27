@@ -89,11 +89,12 @@ export async function createEventAction(formData: FormData) {
 		const validatedData = eventDataSchema.parse(rawData);
 
 		const thumbnailData = formData.get('thumbnail') as File;
+		const isThumbnail = thumbnailData.size !== 0;
 		// const thumbnailURL = thumbnailData
 		// 	? await uploadThumbnail(thumbnailData)
 		// 	: null;
 
-		const thumbnailBase64 = thumbnailData
+		const thumbnailBase64 = isThumbnail
 			? await encodeThumbnail(thumbnailData)
 			: null;
 
@@ -101,7 +102,7 @@ export async function createEventAction(formData: FormData) {
 			...validatedData,
 			thumbnail: {
 				base64: thumbnailBase64,
-				name: thumbnailData ? thumbnailData.name : null,
+				name: isThumbnail ? thumbnailData.name : null,
 			},
 			author_id: session.user.id,
 			created_at: new Date(),
