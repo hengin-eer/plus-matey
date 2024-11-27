@@ -16,5 +16,7 @@ export interface EventData {
 	author_id: string;
 	created_at: Date;
 	updated_at: Date;
-	// その他オーナー情報も追加しよう
+	teamId: string;
+	owner: string;
+	contactFormURL: string;
 }

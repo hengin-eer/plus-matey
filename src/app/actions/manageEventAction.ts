@@ -19,6 +19,9 @@ const eventDataSchema = z.object({
 	department: z.array(z.string()).min(1, '学科を選択してください'),
 	sex: z.string().min(1, '性別を選択してください'),
 	grade: z.array(z.string()).min(1, '学年を選択してください'),
+	teamId: z.string().nullable(),
+	owner: z.string().nullable(),
+	contactFormURL: z.string().url().nullable(),
 });
 
 export type RecruitmentFormData = z.infer<typeof eventDataSchema>;
@@ -78,6 +81,9 @@ export async function createEventAction(formData: FormData) {
 			department: formData.getAll('department'),
 			sex: formData.get('sex'),
 			grade: formData.getAll('grade'),
+			teamId: formData.get('teamId'),
+			owner: formData.get('owner'),
+			contactFormURL: formData.get('contactFormURL'),
 		};
 
 		const validatedData = eventDataSchema.parse(rawData);
@@ -100,7 +106,7 @@ export async function createEventAction(formData: FormData) {
 			author_id: session.user.id,
 			created_at: new Date(),
 			updated_at: new Date(),
-			is_public: true,
+			is_public: true, // TODO: is_publicフィールドから真偽値判定をするように変更
 		};
 
 		await db.collection('events').add(finalData);
