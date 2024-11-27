@@ -4,7 +4,7 @@ import SectionHeading from '@/components/sections/create/SectionHeading';
 import SectionLeftForms from '@/components/sections/create/SectionLeftForms';
 import SectionRightForms from '@/components/sections/create/SectionRightForms';
 import { FormEvent } from 'react';
-import { createEventAction } from '../actions/manageEventAction';
+import { createEventAction } from '../actions/editEventAction';
 import { useRouter } from 'next/navigation';
 
 function Create() {
