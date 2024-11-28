@@ -19,6 +19,7 @@ export interface EventData {
 	} | null;
 	close_at: string;
 	number_recruited: number;
+	appliedUserIds: string[];
 	held_at: string;
 	department: DepartmentKey[];
 	sex: SexKey;

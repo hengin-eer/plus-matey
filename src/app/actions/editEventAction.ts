@@ -104,6 +104,7 @@ export async function createEventAction(formData: FormData) {
 				base64: thumbnailBase64,
 				name: isThumbnail ? thumbnailData.name : null,
 			},
+			appliedUserIds: [],
 			author_id: session.user.id,
 			created_at: new Date(),
 			updated_at: new Date(),
