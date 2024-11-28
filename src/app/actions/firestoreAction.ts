@@ -13,7 +13,7 @@ function formatDate(dateString: string) {
 	const month = date.getMonth() + 1; // 月は0から始まる
 	const day = date.getDate();
 	const dayOfWeek = daysOfWeek[date.getDay()];
-	return `${month} / ${day}(${dayOfWeek})`;
+	return `${month}.${day} (${dayOfWeek})`;
 }
 
 export async function getFirestoreAction(page = 1, limit = 10) {
