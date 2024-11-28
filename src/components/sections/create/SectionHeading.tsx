@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { type Dispatch, type SetStateAction, type FC, useState } from 'react';
 
 type Props = {
-	isPublic: boolean;
-	setIsPublic: Dispatch<SetStateAction<boolean>>;
+	isPublic?: boolean;
+	setIsPublic?: Dispatch<SetStateAction<boolean>>;
 };
 
 // TODO: isPublicはFirestoreから取得するようにする
@@ -18,14 +18,8 @@ const SectionHeading: FC<Props> = ({ isPublic, setIsPublic }) => {
 	};
 
 	const stopEventPublic = () => {
-		const isStoppingAllowed = true;
-
-		alert('このイベントを削除しますか？');
+		alert('このイベントを非公開にしますか？');
 		handleClickMenu();
-
-		if (isStoppingAllowed) {
-			setIsPublic(false);
-		}
 	};
 
 	const deleteEvent = () => {
