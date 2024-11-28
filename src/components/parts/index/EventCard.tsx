@@ -106,6 +106,8 @@ const EventCard: FC<Props> = ({ item }) => {
 							<Image
 								src={item.thumbnail.base64}
 								alt={item.thumbnail.name}
+								height={900}
+								width={1200}
 								className="w-full h-[200px] md:h-[240px] rounded-lg object-cover object-center"
 							/>
 						)}
