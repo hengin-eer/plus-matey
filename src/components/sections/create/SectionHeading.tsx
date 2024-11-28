@@ -6,11 +6,11 @@ import { type Dispatch, type SetStateAction, type FC, useState } from 'react';
 
 type Props = {
 	isPublic?: boolean;
-	setIsPublic?: Dispatch<SetStateAction<boolean>>;
+	// setIsPublic?: Dispatch<SetStateAction<boolean>>;
 };
 
 // TODO: isPublicはFirestoreから取得するようにする
-const SectionHeading: FC<Props> = ({ isPublic, setIsPublic }) => {
+const SectionHeading: FC<Props> = ({ isPublic }) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 
 	const handleClickMenu = () => {
