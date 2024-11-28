@@ -26,6 +26,7 @@ if (!getApps()?.length) {
 }
 
 export const db = getFirestore();
+export const adminFirestore = admin.firestore;
 export const storage = getStorage();
 
 // Auth.js用
