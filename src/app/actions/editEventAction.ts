@@ -105,7 +105,11 @@ export async function createEventAction(formData: FormData) {
 				name: isThumbnail ? thumbnailData.name : null,
 			},
 			appliedUserIds: [],
-			author_id: session.user.id,
+			author: {
+				id: session.user.id,
+				name: session.user.name,
+				image: session.user.image,
+			},
 			created_at: new Date(),
 			updated_at: new Date(),
 			is_public: true, // TODO: is_publicフィールドから真偽値判定をするように変更

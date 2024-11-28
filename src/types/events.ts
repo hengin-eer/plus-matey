@@ -25,7 +25,11 @@ export interface EventData {
 	sex: SexKey;
 	grade: GradeKey[];
 	is_public: boolean;
-	author_id: string;
+	author: {
+		id: string;
+		name: string;
+		image: string;
+	};
 	created_at: Date;
 	updated_at: Date;
 	teamId: string;
