@@ -24,6 +24,7 @@ const config: Config = {
 			'primary-yellow': '#FBD85C',
 			'primary-pink': '#DB2A7F',
 			gray: '#BBBBBB',
+			'high-gray': '#4A4A4A',
 			'light-gray': '#F0F4FC',
 			'department-m': '#E34014',
 			'department-e': '#FABF1B',
@@ -32,6 +33,8 @@ const config: Config = {
 			'department-all': '#B6A4C7',
 			male: '#B0D9FF',
 			female: '#FFB0B5',
+			both: '#F0F4FC',
+			overlay: 'rgba(55, 55, 55, 0.5)',
 		},
 		animation: {
 			'fade-in': 'fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000)   both',

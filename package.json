@@ -10,16 +10,22 @@
 		"format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,md}\" && eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix"
 	},
 	"dependencies": {
+		"@auth/firebase-adapter": "^2.7.3",
 		"@headlessui/react": "^2.1.5",
 		"dayjs": "^1.11.13",
+		"firebase": "^11.0.1",
+		"firebase-admin": "^12.7.0",
 		"next": "14.2.8",
+		"next-auth": "^5.0.0-beta.25",
 		"react": "^18",
 		"react-dom": "^18",
-		"react-tailwindcss-datepicker": "^1.7.2"
+		"react-tailwindcss-datepicker": "^1.7.2",
+		"zod": "^3.23.8"
 	},
 	"devDependencies": {
 		"@iconify/react": "^5.0.2",
 		"@tailwindcss/forms": "^0.5.9",
+		"@types/firebase": "^2.4.32",
 		"@types/node": "^20",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",

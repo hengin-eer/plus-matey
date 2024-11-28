@@ -134,6 +134,7 @@ const SectionRightForms: FC = () => {
 										name="department"
 										value={item.id}
 										className=""
+										defaultChecked
 									/>
 									{/* TODO: チップ風のUIコンポと差し替える */}
 									<p>{item.text}</p>
@@ -187,6 +188,7 @@ const SectionRightForms: FC = () => {
 										name="grade"
 										value={item.id}
 										className=""
+										defaultChecked
 									/>
 									{/* TODO: チップ風のUIコンポと差し替える */}
 									<p>{item.text}</p>

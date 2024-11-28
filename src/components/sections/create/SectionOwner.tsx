@@ -6,7 +6,7 @@ const SectionOwner: FC = () => {
 	const teamList = [
 		{
 			id: '',
-			name: '運営チームを選択する',
+			name: 'チームなし',
 		},
 		{
 			id: 'team-all-in-one',
@@ -21,19 +21,19 @@ const SectionOwner: FC = () => {
 	// NOTE: チーム選択によってメンバーが変化する
 	const currentMemberList = [
 		{
-			id: '123@gmail.com',
+			id: '123@example.com',
 			name: 'E0001 山田太郎',
 		},
 		{
-			id: '223@gmail.com',
+			id: '223@example.com',
 			name: 'E0002 田中次郎',
 		},
 		{
-			id: '323@gmail.com',
+			id: '323@example.com',
 			name: 'E0003 魚住花子',
 		},
 		{
-			id: '423@gmail.com',
+			id: '423@example.com',
 			name: 'E0004 明石太郎',
 		},
 	];

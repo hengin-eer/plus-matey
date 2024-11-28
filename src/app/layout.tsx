@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Noto_Sans_JP } from 'next/font/google';
 import './globals.css';
 import { ReactNode } from 'react';
-import Header from '@/components/Header';
+import Header from '@/components/parts/header/Header';
 
 const noto_sans_jp = Noto_Sans_JP({
 	weight: ['400', '700'],

@@ -7,4 +7,10 @@
 		"source.addMissingImports",
     "source.fixAll.eslint",
 	],
+	"[dotenv]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"[ignore]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
 }
