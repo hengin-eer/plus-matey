@@ -1,5 +1,7 @@
 export type DepartmentKey = 'e' | 'm' | 'c' | 'a';
+
 export type SexKey = 'male' | 'female' | 'both';
+
 export type GradeKey =
 	| 'grade-1'
 	| 'grade-2'
