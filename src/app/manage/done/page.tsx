@@ -1,12 +1,11 @@
-'use client';
-
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
 
-function Done() {
-	const searchParams = useSearchParams();
-
-	const message = searchParams.get('message');
+function Done({
+	searchParams,
+}: {
+	searchParams: { [key: string]: string | undefined };
+}) {
+	const message = searchParams.message;
 
 	return (
 		<div className="pt-20 grid place-items-center">
