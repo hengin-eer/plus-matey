@@ -2,9 +2,10 @@
 
 import { adminFirestore, db } from '@/lib/firebase';
 import { EventData } from '@/types/events';
+import { Timestamp } from 'firebase-admin/firestore';
 
-function serializeTimestamp(timestamp: any): Date {
-	return timestamp ? new Date(timestamp._seconds * 1000) : new Date();
+function serializeTimestamp(timestamp: Timestamp): Date {
+	return timestamp ? new Date(timestamp.seconds * 1000) : new Date();
 }
 
 function formatDate(dateString: string) {
