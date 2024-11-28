@@ -1,5 +1,5 @@
 import { signInAction, signOutAction } from '@/app/actions/auth';
-import { auth, signIn } from '@/auth';
+import { auth } from '@/auth';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { Icon } from '@iconify/react';
 import Image from 'next/image';
