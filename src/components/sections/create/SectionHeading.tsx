@@ -2,7 +2,7 @@
 
 import { Icon } from '@iconify/react/dist/iconify.js';
 import Link from 'next/link';
-import { type Dispatch, type SetStateAction, type FC, useState } from 'react';
+import { type FC, useState } from 'react';
 
 type Props = {
 	isPublic?: boolean;
