@@ -11,6 +11,7 @@ import {
 	cancelEventFirestore,
 } from '@/app/actions/firestoreAction';
 import { useSession } from 'next-auth/react';
+import LinkToExternal from '../LinkToExternal';
 
 type Props = {
 	item: EventData;
@@ -23,9 +24,6 @@ const EventCard: FC<Props> = ({ item }) => {
 	const [isFollowed, setIsFollowed] = useState(false);
 	const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 	const [isApplied, setIsApplied] = useState(false);
-
-	const iconimage = '/kirito.png';
-	const acountname = '上級修剣士 ユージオ';
 
 	const departmentMap: Record<DepartmentKey, string> = {
 		e: '電気情報工学科',
@@ -95,7 +93,7 @@ const EventCard: FC<Props> = ({ item }) => {
 				<PopupConfirmApply
 					isApplied={isApplied}
 					handlePopupOpen={handlePopupOpen}
-					ApplyEventAction={() => ApplyEventAction(item.author_id, item.id)}
+					ApplyEventAction={() => ApplyEventAction(item.author.id, item.id)}
 				/>
 			)}
 			<div
@@ -182,6 +180,18 @@ const EventCard: FC<Props> = ({ item }) => {
 										)}
 									</div>
 								</div>
+								<div className="flex items-center gap-2">
+									<p>開催日時:</p>
+									<p>{item.held_at}</p>
+								</div>
+								{item.contactFormURL && (
+									<div className="flex flex-col items-start gap-2">
+										<p className="text-lg">お問い合わせフォーム:</p>
+										<LinkToExternal href={item.contactFormURL}>
+											{item.contactFormURL}
+										</LinkToExternal>
+									</div>
+								)}
 							</div>
 						)}
 					</div>
@@ -237,14 +247,13 @@ const EventCard: FC<Props> = ({ item }) => {
 
 					<div className="flex flex-row items-center gap-3 place-content-center">
 						<Image
-							src={iconimage}
+							src={item.author.image}
 							width={500}
 							height={500}
 							alt="icon"
-							className="h-[40px] w-[40px] aspect-square"
+							className="size-8 aspect-square rounded-full"
 						/>
-						<p className="text-xs opacity-100">{acountname}</p>
-						{/* アカウント名 */}
+						<p className="text-sm opacity-100">{item.author.name}</p>
 						<button
 							className="flex rounded-full border border-primary-yellow-green text-primary-yellow-green items-center text-[10px] py-1 px-[6px] transition duration-300 hover:text-primary-green hover:border-primary-green active:scale-95"
 							onClick={() => setIsFollowed(!isFollowed)}
