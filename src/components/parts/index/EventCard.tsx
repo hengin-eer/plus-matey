@@ -85,7 +85,7 @@ const EventCard: FC<Props> = ({ item }) => {
 
 			setIsApplied(defaultIsApplied);
 		}
-	}, [session]);
+	}, [session, item.appliedUserIds]);
 
 	return (
 		<>
@@ -103,7 +103,7 @@ const EventCard: FC<Props> = ({ item }) => {
 				<div className="flex flex-col gap-8 items-center xl:items-start xl:flex-row-reverse">
 					<div className="flex flex-col items-start gap-7 w-full">
 						{item.thumbnail?.base64 && (
-							<img
+							<Image
 								src={item.thumbnail.base64}
 								alt={item.thumbnail.name}
 								className="w-full h-[200px] md:h-[240px] rounded-lg object-cover object-center"
